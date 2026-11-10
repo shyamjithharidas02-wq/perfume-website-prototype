@@ -201,6 +201,26 @@
     parallax();
   }
 
+  /* ---------- Theme switcher ---------- */
+  const themeBtns = $$('.theme-sw');
+  if (themeBtns.length) {
+    const root = document.documentElement;
+    const sync = () => {
+      const cur = root.getAttribute('data-theme') || '';
+      themeBtns.forEach((b) => b.setAttribute('aria-checked', String(b.dataset.themeSet === cur)));
+    };
+    themeBtns.forEach((b) => b.addEventListener('click', () => {
+      // clicking the active swatch again returns to the original palette
+      const key = b.getAttribute('aria-checked') === 'true' ? '' : b.dataset.themeSet;
+      root.classList.add('theme-anim');
+      if (key) root.setAttribute('data-theme', key); else root.removeAttribute('data-theme');
+      try { if (key) localStorage.setItem('cassie-theme', key); else localStorage.removeItem('cassie-theme'); } catch (e) { /* storage unavailable */ }
+      sync();
+      setTimeout(() => root.classList.remove('theme-anim'), 600);
+    }));
+    sync();
+  }
+
   /* ---------- Footer year ---------- */
   $('#year').textContent = new Date().getFullYear();
 })();

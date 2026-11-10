@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
+  <script>try { var t = localStorage.getItem('cassie-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 </head>
 <body>
 
@@ -47,6 +48,12 @@
       </nav>
 
       <div class="header__actions">
+        <div class="theme-switch" role="radiogroup" aria-label="Colour theme">
+          <button type="button" class="theme-sw" role="radio" aria-checked="false" data-theme-set="noir" aria-label="Noir and Gold theme" title="Noir and Gold" style="--sw-a:#0B0B0D; --sw-b:#C9A24D"></button>
+          <button type="button" class="theme-sw" role="radio" aria-checked="false" data-theme-set="emerald" aria-label="Emerald and Gold theme" title="Emerald and Gold" style="--sw-a:#0E3B2E; --sw-b:#D4AF37"></button>
+          <button type="button" class="theme-sw" role="radio" aria-checked="false" data-theme-set="ivory" aria-label="Champagne Ivory theme" title="Champagne Ivory" style="--sw-a:#FAF7F0; --sw-b:#B8923F"></button>
+          <button type="button" class="theme-sw" role="radio" aria-checked="false" data-theme-set="plum" aria-label="Royal Plum and Champagne theme" title="Royal Plum and Champagne" style="--sw-a:#2E1A33; --sw-b:#D8BC8A"></button>
+        </div>
         <button class="icon-btn" id="searchOpen" aria-label="Search">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         </button>
@@ -497,38 +504,53 @@
     </section>
 
     <!-- ========== WHY CHOOSE US ========== -->
-    <section class="section why" id="why">
-      <div class="container">
-        <div class="section-head section-head--split reveal">
-          <div>
-            <span class="eyebrow eyebrow--light">Manufacturing Solutions</span>
-            <h2 class="section-title section-title--light">Why Brands<br /><em>Choose Cassie</em></h2>
-          </div>
-          <a href="#process" class="link-arrow link-arrow--light">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="why__stage">
+        <div class="why__panel" aria-hidden="true">
+          <img src="images/hero-filling.jpg" alt="" loading="lazy" />
         </div>
 
-        <div class="why-grid">
-          <div class="why-card reveal">
-            <svg class="why-card__icon" viewBox="0 0 48 48"><path d="M24 4 8 10v12c0 10 7 18 16 22 9-4 16-12 16-22V10L24 4Z"/><path d="m17 24 5 5 9-10"/></svg>
-            <h3>Quality Control</h3>
-            <p>Every batch tested for stability, longevity and consistency in our in-house laboratory.</p>
-          </div>
-          <div class="why-card reveal">
-            <svg class="why-card__icon" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M14 24h20M28 18l6 6-6 6"/></svg>
-            <h3>End-to-End Service</h3>
-            <p>Formulation, bottles, packaging and filling — managed seamlessly in one place.</p>
-          </div>
-          <div class="why-card reveal">
-            <svg class="why-card__icon" viewBox="0 0 48 48"><circle cx="24" cy="26" r="16"/><path d="M24 18v8l6 4M20 4h8M24 4v6"/></svg>
-            <h3>On-Time Delivery</h3>
-            <p>Clear timelines and dependable production planning, from sample to shipment.</p>
-          </div>
-          <div class="why-card reveal">
-            <svg class="why-card__icon" viewBox="0 0 48 48"><path d="M19 4h10M21 4v10L10 38a4 4 0 0 0 3.6 6h20.8a4 4 0 0 0 3.6-6L27 14V4"/><path d="M14 30h20"/></svg>
-            <h3>Custom Formulas</h3>
-            <p>Bespoke scents developed with our perfumers to express your brand's identity.</p>
-          </div>
+        <div class="why__intro reveal">
+          <a href="#process" class="why__arrow" aria-label="See how it works"><svg viewBox="0 0 64 32"><path d="M2 16h58M46 3l14 13-14 13"/></svg></a>
+          <h2 class="why__title" id="why-title"><strong>Why</strong> Choose Us?</h2>
+          <p class="why__tagline">Your Brand in Capable Hands!</p>
+          <p class="why__lead"><strong>Care at every stage, from fragrance to finished product.</strong> Your name goes on the bottle. Our role is to help you feel confident about the fragrance, its presentation, and how it is made.</p>
         </div>
+
+        <ul class="why__list">
+          <li class="why__item why__item--1">
+            <span class="why__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V7l8 4v10H3Z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg></span>
+            <span class="why__line" aria-hidden="true"></span>
+            <div class="why__text">
+              <h3>In-house production</h3>
+              <p>Blending, filling, packing, and quality checks are handled within our UAE manufacturing operation.</p>
+            </div>
+          </li>
+          <li class="why__item why__item--2">
+            <span class="why__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v5.7c0 4.8 3.2 8.9 7.5 10.3 4.3-1.4 7.5-5.5 7.5-10.3V5.5L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.8"/></svg></span>
+            <span class="why__line" aria-hidden="true"></span>
+            <div class="why__text">
+              <h3>Approval before production</h3>
+              <p>Review the finished sample and confirm the details before your range is manufactured.</p>
+            </div>
+          </li>
+          <li class="why__item why__item--3">
+            <span class="why__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 3h5M10.5 3v6L5.3 18.2A1.9 1.9 0 0 0 7 21h10a1.9 1.9 0 0 0 1.7-2.8L13.5 9V3"/><path d="M7.6 15h8.8"/></svg></span>
+            <span class="why__line" aria-hidden="true"></span>
+            <div class="why__text">
+              <h3>Flexible Manufacturing Solutions</h3>
+              <p>Start with a custom brief, choose from our fragrance library, or supply your own concentrate for filling.</p>
+            </div>
+          </li>
+          <li class="why__item why__item--4">
+            <span class="why__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5 3.5 6.8v10.4l8.5 4.3 8.5-4.3V6.8L12 2.5Z"/><path d="m3.8 7 8.2 4.2L20.2 7M12 11.2v10.1M7.8 4.7l8.4 4.3"/></svg></span>
+            <span class="why__line" aria-hidden="true"></span>
+            <div class="why__text">
+              <h3>Packaging support</h3>
+              <p>Work through bottle, cap, box, and finish options that suit your brand and intended price point.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -774,6 +796,6 @@
 
   <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
